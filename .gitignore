@@ -1,0 +1,54 @@
+# Secrets & Environment variables
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets/
+
+# R environment & session caches
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+renv/library/
+renv/local/
+renv/staging/
+
+# Raw biological datasets (store processed artifacts only)
+pipeline/data/raw/
+data/raw/
+*.tar.gz
+*.bam
+*.sam
+*.fastq
+*.fastq.gz
+
+# Python & Backend
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+ENV/
+build/
+dist/
+
+# Node & Next.js Frontend
+frontend/node_modules/
+node_modules/
+frontend/.next/
+.next/
+frontend/out/
+out/
+.vercel
+
+# OS & Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
