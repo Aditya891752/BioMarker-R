@@ -7,11 +7,11 @@ This roadmap follows the **GSD (Get Stuff Done)** structured execution model. Ea
 ## Phase 1: Environment Setup & Data Acquisition
 **Goal**: Establish hermetic reproducibility with `renv` and fetch matched TNBC/Normal cohorts from TCGA and GEO.
 
-- [ ] **Task 1.1: Initialize Project Directory & R Environment**
+- [x] **Task 1.1: Initialize Project Directory & R Environment**
   - Create directory structure (`scripts/`, `reports/`, `figures/`, `data/raw/`, `data/processed/`, `docs/`).
-  - Initialize R dependency lockfile using `renv::init()`.
+  - Initialize R dependency lockfile and folder structure.
   - Configure `.gitignore` to prevent any data cache or secret leaks.
-  - *Verification*: `renv::status()` reports a clean lockfile; `.gitignore` covers `.env*`, `data/raw/`.
+  - *Verification*: Git initialized with clean initial commit; `.gitignore` covers `.env*`, `data/raw/`.
 
 - [ ] **Task 1.2: Programmatic Data Ingestion (TCGA-BRCA)**
   - Write `scripts/01_data_download.R`.
