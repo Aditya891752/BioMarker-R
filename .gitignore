@@ -19,11 +19,19 @@ renv/staging/
 # Raw biological datasets (store processed artifacts only)
 pipeline/data/raw/
 data/raw/
+GDCdata/
+data/GDCdata/
+*.tsv
 *.tar.gz
 *.bam
 *.sam
 *.fastq
 *.fastq.gz
+MANIFEST.txt
+reports/*_files/
+reports/.gitignore
+/index.html
+/*.rds
 
 # Python & Backend
 __pycache__/

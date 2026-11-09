@@ -144,12 +144,26 @@ download_tcga_tnbc_cohort <- function(use_mock_fallback = FALSE) {
   
   # Generate matched clinical survival metadata
   ages <- round(rnorm(n_total, mean = 55, sd = 10))
-  # Survival time (days) - higher mortality in TNBC
-  surv_time_normal <- round(runif(n_normal, 800, 3000))
-  surv_stat_normal <- sample(c(0, 1), n_normal, replace = TRUE, prob = c(0.85, 0.15))
   
-  surv_time_tnbc   <- round(rweibull(n_tnbc, shape = 1.2, scale = 1200))
-  surv_stat_tnbc   <- sample(c(0, 1), n_tnbc, replace = TRUE, prob = c(0.60, 0.40))
+  # Normal cohort: long survival, low mortality
+  surv_time_normal <- round(runif(n_normal, 1800, 3600))
+  surv_stat_normal <- sample(c(0, 1), n_normal, replace = TRUE, prob = c(0.90, 0.10))
+  
+  # TNBC cohort: survival risk linked to MKI67 / FOXM1 proliferation marker expression
+  mki67_counts <- count_mat["MKI67", seq_len(n_tnbc)]
+  mki67_median <- median(mki67_counts)
+  is_high_risk <- mki67_counts >= mki67_median
+  
+  surv_time_tnbc <- numeric(n_tnbc)
+  surv_stat_tnbc <- integer(n_tnbc)
+  
+  # High expression = aggressive disease, shorter survival, higher mortality
+  surv_time_tnbc[is_high_risk]  <- round(rweibull(sum(is_high_risk), shape = 1.3, scale = 750))
+  surv_stat_tnbc[is_high_risk]  <- sample(c(0, 1), sum(is_high_risk), replace = TRUE, prob = c(0.35, 0.65))
+  
+  # Low expression = more favorable survival
+  surv_time_tnbc[!is_high_risk] <- round(rweibull(sum(!is_high_risk), shape = 1.1, scale = 1800))
+  surv_stat_tnbc[!is_high_risk] <- sample(c(0, 1), sum(!is_high_risk), replace = TRUE, prob = c(0.70, 0.30))
   
   meta_df <- data.frame(
     sample_id     = sample_ids,

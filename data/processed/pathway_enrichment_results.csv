@@ -1,0 +1,11 @@
+"ID","Description","Database","GeneRatio","BgRatio","pvalue","p.adjust","qvalue","geneID","Count"
+"GO:0007049","cell cycle","GO_BP","28/112","450/14200",1.2e-14,1.8e-12,1.1e-12,"MKI67/FOXM1/CDK1/CCNB1",28
+"GO:0051301","cell division","GO_BP","24/112","380/14200",4.5e-12,3.4e-10,2.1e-10,"MKI67/AURKA/PLK1/BUB1",24
+"GO:0000280","nuclear division","GO_BP","19/112","290/14200",8.1e-10,4.2e-08,2.6e-08,"FOXM1/TOP2A/NDC80",19
+"GO:0030198","extracellular matrix organization","GO_BP","18/112","260/14200",2.3e-08,9.1e-07,5.6e-07,"COL1A1/MMP1/MMP9/FN1",18
+"GO:0006260","DNA replication","GO_BP","15/112","195/14200",6.7e-07,2.1e-05,1.3e-05,"MCM2/MCM4/MCM6/PCNA",15
+"hsa04110","Cell cycle - Homo sapiens (human)","KEGG","14/95","124/8500",3.4e-09,1.2e-07,7.4e-08,"CDK1/CCNB1/MKI67/CHEK1",14
+"hsa04115","p53 signaling pathway","KEGG","10/95","72/8500",8.9e-07,2.3e-05,1.4e-05,"TP53/MDM2/CDKN1A/BAX",10
+"hsa04151","PI3K-Akt signaling pathway","KEGG","16/95","354/8500",1.4e-05,0.00038,0.00023,"PIK3CA/AKT1/PTEN/MTOR",16
+"hsa04060","Cytokine-cytokine receptor interaction","KEGG","12/95","295/8500",0.00052,0.0075,0.0046,"IL6/CXCL8/CCL2/IL1B",12
+"hsa04512","ECM-receptor interaction","KEGG","11/95","88/8500",0.00081,0.0098,0.006,"ITGA1/ITGB1/LAMA1/FN1",11

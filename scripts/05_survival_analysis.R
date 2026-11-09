@@ -157,7 +157,7 @@ if (requireNamespace("survival", quietly = TRUE) && requireNamespace("survminer"
     risk.table    = TRUE,
     risk.table.col= "strata",
     risk.table.height = 0.25,
-    ggtheme       = theme_classic(base_size = 11),
+    ggtheme       = ggplot2::theme_classic(base_size = 11),
     title         = sprintf("Overall Survival Stratification: %s in TNBC", lead_biomarker),
     xlab          = "Time (Months)",
     ylab          = "Overall Survival Probability",

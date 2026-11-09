@@ -15,9 +15,8 @@ pipeline:
 	Rscript scripts/run_pipeline.R
 
 report:
-	@echo "==> Compiling interactive Quarto / R Markdown report to docs/index.html..."
-	quarto render reports/BioMarker_Analysis_Report.qmd --output-dir ../docs --output index.html || \
-	Rscript -e "rmarkdown::render('reports/BioMarker_Analysis_Report.qmd', output_dir = 'docs', output_file = 'index.html')"
+	@echo "==> Compiling interactive report to docs/index.html..."
+	Rscript -e "if (Sys.getenv('RSTUDIO_PANDOC') == '' && dir.exists('C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools')) Sys.setenv(RSTUDIO_PANDOC='C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools'); rmarkdown::render('reports/BioMarker_Analysis_Report.qmd', output_dir = 'docs', output_file = 'index.html')"
 
 clean:
 	@echo "==> Cleaning temporary R build caches and session logs..."
